@@ -1,0 +1,18 @@
+# A sample job for dbx_prof_exam_prep.
+
+resources:
+  jobs:
+    run_integration_tests:
+      name: "[${bundle.target}] Integration Tests"
+      tasks:
+        - task_key: run_pytest
+          job_cluster_key: test_cluster
+          spark_python_task:
+            python_file: ../src/dbx_prof_exam_prep/main.py # Or a dedicated test runner
+            parameters: ["--pytest"]
+      job_clusters:
+        - job_cluster_key: test_cluster
+          new_cluster:
+            spark_version: "14.3.x-scala2.12"
+            node_type_id: "Standard_DS3_v2"
+            num_workers: 1

@@ -1,0 +1,20 @@
+# The main pipeline for dbx_prof_exam_prep
+
+resources:
+  pipelines:
+    dbx_prof_exam_prep_etl:
+      name: dbx_prof_exam_prep_etl
+      catalog: ${var.catalog}
+      schema: ${var.schema}
+      serverless: true
+      root_path: "../src/dbx_prof_exam_prep_etl"
+
+      libraries:
+        - glob:
+            include: ../src/dbx_prof_exam_prep_etl/transformations/**
+
+      environment:
+        dependencies:
+          # We include every dependency defined by pyproject.toml by defining an editable environment
+          # that points to the folder where pyproject.toml is deployed.
+          - --editable ${workspace.file_path}

@@ -1,0 +1,17 @@
+{
+    "jupyter.interactiveWindow.cellMarker.codeRegex": "^# COMMAND ----------|^# Databricks notebook source|^(#\\s*%%|#\\s*\\<codecell\\>|#\\s*In\\[\\d*?\\]|#\\s*In\\[ \\])",
+    "jupyter.interactiveWindow.cellMarker.default": "# COMMAND ----------",
+    "python.defaultInterpreterPath": "${workspaceFolder}/dbx/dbx_prof_exam_prep/.venv/bin/python",
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}/dbx/dbx_prof_exam_prep/src"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.pytestArgs": [
+        "dbx/dbx_prof_exam_prep/tests"
+    ],
+    "python.testing.pytestEnv": {
+        "PYTHONPATH": "${workspaceFolder}/dbx/dbx_prof_exam_prep/src",
+        "DATABRICKS_CONFIG_PROFILE": "dbx_fellingh",
+        "DATABRICKS_AUTH_TYPE": ""
+    }
+}
